@@ -8,8 +8,8 @@
         <div class="home-tab">
           <!-- Tombol "Buat Menu" di kanan atas -->
           <div class="d-sm-flex align-items-center justify-content-between border-bottom mb-3">
-            <h2 class="mb-0">Data Menu</h2>
-            <button type="button" class="btn btn-outline-primary btn-fw" data-toggle="modal" data-target="#createModal">Buat Menu</button>
+            <h5 class="mb-0"><span class="text-muted fw-light">Modul /</span> Processmaker</h5>
+            <button type="button" class="btn btn-outline-primary btn-fw" data-toggle="modal" data-target="#createModal">Buat Modul Processmaker</button>
           </div>
           <?php echo show_notification(); ?>
           <!-- Tabel dengan ikon aksi -->
@@ -17,29 +17,32 @@
             <table id="example" class="table table-striped" style="width: 100%;">
               <thead>
                 <tr>
-                  <th class="text-center">Nama Menu</th>
-                  <th class="text-center">Menu Parent</th>
-                  <th class="text-center">Viewer</th>
-                  <th class="text-center">Status</th>
+                  <th class="text-center">Nama Proses</th>
+                  <th class="text-center">URL</th>
+                  <th class="text-center">Pembuat</th>
                   <th class="text-center">Tanggal Dibuat</th>
+                  <th class="text-center">Status</th>
                   <th class="text-center" style="width:10%;">Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <? foreach ($menu as $row) { ?>
+                <? foreach ($pm as $row) { ?>
                 <tr>
-                  <td style="text-align: left;"><?= $row['nama_menu']; ?></td>
-                  <td style="text-align: left;"><?= $row['menu_parent']; ?></td>
-                  <td style="text-align: left;"><?= $row['id_viewer']; ?></td>
-                  <td class="text-center">
-                      <?php if ($row['publish'] == 1): ?>
-                          <label class="badge badge-success">Publik</label>
-                      <?php else: ?>
-                          <label class="badge badge-warning">Privat</label>
-                      <?php endif; ?>
-                  </td>
+                  <td style="text-align: left;"><?= $row['nama_proses']; ?></td>
+                  <td style="text-align: left;"><?= $row['url']; ?></td>
+                  <td style="text-align: left;"><?= $row['pembuat']; ?></td>
                   <td class="text-center" data-date="<?= $row['ts']; ?>"></td>
                   <td class="text-center">
+                      <?php if ($row['list'] == 1): ?>
+                          <label class="badge badge-success">List</label>
+                      <?php else: ?>
+                          <label class="badge badge-warning">Dynaform</label>
+                      <?php endif; ?>
+                  </td>
+                  <td class="text-center">
+                    <label class="badge badge-primary" data-toggle="modal" data-target="#viewModal">
+                        <i class="mdi mdi-magnify"></i>
+                    </label>
                     <label class="badge badge-info" data-toggle="modal" data-target="#editModal">
                       <i class="mdi mdi-pencil"></i>
                     </label>

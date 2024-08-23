@@ -39,7 +39,7 @@
         <div class="collapse" id="mdl-setting">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item" style="position:relative;"><a class="nav-link" href="pages/ui-features/buttons.html">Viewer Setting</a></li>
-              <li class="nav-item" style="position:relative;"><a class="nav-link" href="pages/ui-features/buttons.html">Processmaker Setting</a></li>
+              <li class="nav-item" style="position:relative;"><a class="nav-link" href="<? echo base_url('admin/modul/processmaker'); ?>">Processmaker Setting</a></li>
               <li class="nav-item" style="position:relative;"><a class="nav-link" href="pages/ui-features/dropdowns.html">Report BIRT Setting</a></li>
               <li class="nav-item" style="position:relative;"><a class="nav-link" href="pages/ui-features/dropdowns.html">Map Setting</a></li>
               <li class="nav-item" style="position:relative;"><a class="nav-link" href="pages/ui-features/dropdowns.html">Graph Setting</a></li>

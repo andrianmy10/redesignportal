@@ -7,7 +7,7 @@
     }
 
     public function getLogo() {
-        $query = $this->db->query("SELECT logo FROM site_setting");
+        $query = $this->db->query("SELECT logo FROM tb_site");
         $row = $query->row_array();
         return $row['logo'];
     }

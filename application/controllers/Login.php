@@ -16,7 +16,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-    $data['logo'] = $this->M_login->getLogo();
+    	$data['logo'] = $this->M_login->getLogo();
 		$this->load->view('Login/Pegawai/v_login', $data);
 	}
 

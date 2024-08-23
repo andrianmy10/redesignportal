@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/adminarea/template/vendors/simple-line-icons/css/simple-line-icons.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/adminarea/template/vendors/css/vendor.bundle.base.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/adminarea/template/css/vertical-layout-light/style.css'); ?>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
   <link rel="shortcut icon" href="<? echo base_url('assets/images/ap2.png'); ?>"/>
 
 

@@ -62,3 +62,6 @@ $route['home'] = 'Canvas';
 
 //Admin Menu Route
 $route['admin/menusetting'] = 'Admin/viewMenuSetting';
+
+//Admin Modul Route
+$route['admin/modul/processmaker'] = 'Admin/viewProcessmakerSetting';

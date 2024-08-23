@@ -54,7 +54,7 @@ class Admin extends CI_Controller {
         $this->session->set_flashdata('error', $error_msg);
     }
 
-    $this->load->view('Canvas/Admin/v_menusetting', $data);
+    $this->load->view('Canvas/Admin/Menu/v_menusetting', $data);
   }
 
   public function saveMenu(){
@@ -93,5 +93,42 @@ class Admin extends CI_Controller {
     }
 
     redirect('admin/menusetting');
+  }
+
+  /* Bagian Modul Setting */
+  public function viewProcessmakerSetting(){
+    $data['greeting'] = get_greeting();
+
+    $ch = curl_init($this->api_link_bpm . 'extrarest/login-user');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array("Authorization: Bearer " . $this->token));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $oUser = json_decode(curl_exec($ch));
+
+    $data['user_login'] = $oUser;
+    $api_link = "https://webserver.asihputera.or.id/api/1.0/getDataPM";
+    $ch1 = curl_init($api_link);
+    curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch1, CURLOPT_POST, true);
+    curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode([
+        'api_key_access' => $this->api_key,
+        'web_origin' => 'http://localhost:8080/redesignportal/',
+    ]));
+    curl_setopt($ch1, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+    ]);
+
+    $response = curl_exec($ch1);
+    curl_close($ch1);
+
+    $result = json_decode($response, true);
+    $error_msg = '';
+
+    if (isset($result['status']) && $result['status'] === 'success' && isset($result['data'])) {
+        $data['pm'] = $result['data'];
+    } else {
+        $this->session->set_flashdata('error', $error_msg);
+    }
+
+    $this->load->view('Canvas/Admin/Modul/v_processmaker', $data);
   }
 }
